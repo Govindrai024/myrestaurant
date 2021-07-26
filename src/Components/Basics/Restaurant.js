@@ -1,12 +1,27 @@
 import React,{useState} from 'react'
 import './style.css'
 import Manu from './manuApi'
-import ManuCard from '../manuCard'
+import ManuCard from './manuCard'
+import NavBar from './NavBar'
+
+
+const uniqueList = [
+    ...new Set (
+        Manu.map((curElem) =>{
+            return curElem.category
+        })
+    ),"All"
+]
 
 const Restaurant = () => {
      const [manuData, setmanuData] = useState(Manu)
+     const [manuList, setmanuList] = useState(uniqueList)
 
      const filterItems = (category) => {
+         if(category === "All"){
+             return setmanuData(Manu)
+         }
+        
         const updatedList =   Manu.filter((curElem) =>{
             return curElem.category === category;
         })
@@ -15,16 +30,7 @@ const Restaurant = () => {
 
     return (
         <div>
-            <nav className="navbar">
-                <div className="btn-group">
-                    <button className="btn-group__item" onClick={() => (filterItems('breakfast'))}>breakfast</button>
-                    <button className="btn-group__item" onClick={() => (filterItems('lunch'))}>lunch</button>
-                    <button className="btn-group__item"onClick={() => (filterItems('Evening'))}>Evening</button>
-                    <button className="btn-group__item"onClick={() => (filterItems('Dinner'))}>Dinner</button>
-                    <button className="btn-group__item"onClick={() => setmanuData(Manu)}>All</button>
-                </div>
-
-            </nav>
+            <NavBar  filterItems={filterItems} manuList={manuList} />
             <ManuCard manuData={manuData}/>
         </div>
 

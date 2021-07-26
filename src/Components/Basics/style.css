@@ -6,7 +6,7 @@
   }
   
   html {
-    background: #faf7f2;
+    background:rgb(200, 200, 200);
     background-image: url(https://s3.postimg.org/s1n3ji1ur/paper_fibers_2_X.png);
     box-sizing: border-box;
     font-family: "Lato", sans-serif;
@@ -21,7 +21,7 @@
   }
   
   .subtle {
-    color: #aaa;
+    color: rgb(105, 93, 93);
   }
   
   .main-card--cointainer {
@@ -62,7 +62,7 @@
   }
   
   .card-circle {
-    border: 1px solid #aaa;
+    border: 1px solid rgb(85, 23, 71);
     border-radius: 50%;
     display: inline-block;
     line-height: 22px;
